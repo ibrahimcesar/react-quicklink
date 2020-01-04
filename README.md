@@ -1,6 +1,6 @@
 # React Quicklink
 
-> ⚡️ Faster subsequent page-loads by prefetching in-viewport links during idle time for React, port of https://getquick.link
+> ⚡️ Faster subsequent page-loads by prefetching in-viewport links during idle time for __React__, port of https://getquick.link
 
 ![Quicklink example](https://react-quicklink.s3.amazonaws.com/example.gif)
 
