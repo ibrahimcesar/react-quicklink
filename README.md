@@ -17,12 +17,16 @@ npm install react-quicklink -S
 ```
 ## How it works
 
-Quicklink attempts to make navigations to subsequent pages load faster. It:
+Quicklink attempts to make navigations to subsequent pages load faster making anchors aware of user network capabilities. It:
 
 - Detects links within the viewport (using __Intersection Observer__)
 - Waits until the browser is idle (using __requestIdleCallback__)
 - Checks if the user isn't on a slow connection (using __navigator.connection.effectiveType__) or has data-saver enabled (using __navigator.connection.saveData__)
 - Prefetches URLs to the links (using __<link rel=prefetch>__ or __XHR__).
+
+## Why
+
+Specially for Server Side Rendering Apps, with a lot of content, navigation between pages is not as performant as single page applications, this technique makes possible to fine tunning your perceived speed and a better experience for your users. As a component you can have control in which links and origins you want to target and not loading every link it finds (which is a very expensive task if you have a lot of links in a page). An adaptive loading way of anchors work for a better navigation. 
 
 ## Basic usage
 
@@ -63,7 +67,6 @@ const App = () => (
         alt="Alt" // String for alternative text for your link. Required! #a11y
         title="Title" // String for title text for your link
         connType: "2g" // String with threshold for slow connection. Could be "slow-2g", "2g", "3g" or"4g". Dafaults to 2g, meaning on "slow-2g", "2g" this component will not do anything besides be the good and old anchor link <a>
-        allowedOrigins: ["https://example.com"] // Array of strings. Allowed origins to perform the fetch. Defaults to location in browser.
         rootMargin: "0px" // String value for rootMargin property for Intersection Observer. Must be in pixels or percentage.
         threshold: [1.0], // Array of floats from 0 to 1.0. Threshold or Intersection Observer. To better understand about this Web API, pelase refer to https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API
         content: "My text link that is not Click Here, passed as a prop!", // String for content if you prefer a more concise way to wrote the tag, like I fancy myself. 

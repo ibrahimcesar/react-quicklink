@@ -4,20 +4,18 @@ import FetchLink from "./FetchLink";
 
 let effectiveTypes = ["slow-2g", "2g", "3g", "4g"]
 
-const QuickLink = ({ to, altText, children, titleText, allowedOrigins, connType, rootMargin, threshold, content, cls, ...rest}) => {
+const QuickLink = ({ to, altText, children, titleText, connType, rootMargin, threshold, content, cls, ...rest}) => {
   
   const refLink = useRef();
   useEffect(() => {
     const { current } = refLink;
-    const allowedOptions = allowedOrigins || [window.location.hostname];
-    const allowed = allowedOptions === current.hostname;
     const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
     const type = connection.effectiveType;
     let thresholdType = effectiveTypes.indexOf(connType);
     let types = effectiveTypes.filter( (t, i) => i >= thresholdType );
     const typeSaver = types.indexOf(type) > -1;
     const dataSaver = connection.saveData;
-    const apt = allowed || typeSaver || dataSaver;
+    const apt = typeSaver || dataSaver;
 
     const handleIntersection = (entries) => {
       if ("requestIdleCallback" in window && apt && entries[0].isIntersecting) {
@@ -45,7 +43,6 @@ QuickLink.propTypes = {
   children: PropTypes.node,
   title: PropTypes.string,
   connType: PropTypes.string,
-  allowedOrigins: PropTypes.array,
   rootMargin: PropTypes.string,
   threshold: PropTypes.array,
   content: PropTypes.string,
@@ -55,7 +52,6 @@ QuickLink.propTypes = {
 QuickLink.dafaultProps = {
   title: "",
   connType: "2g",
-  allowedOrigins: null,
   rootMargin: "0px",
   threshold: [1.0],
   content: "",
