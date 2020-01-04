@@ -2,7 +2,7 @@
 
 > ⚡️ Faster subsequent page-loads by prefetching in-viewport links during idle time for React, port of https://getquick.link
 
-![iFrame example](https://react-lite-youtube-embed.s3-sa-east-1.amazonaws.com/lite.gif)
+![Quicklink example](https://react-quicklink.s3.amazonaws.com/example.gif)
 
 ## Installation
 

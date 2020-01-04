@@ -9,8 +9,8 @@ const App = () => (
         <Quicklink to="https://google.com" alt="Alt" title="Title">Link</Quicklink>
       </section>
 
-    <section>
-      <Quicklink to="https://google.com" alt="Alt" title="Title" content="Link2"/>
+    <section style={{height: "500px"}}>
+      <Quicklink to="https://example.com" alt="Alt" title="Title" content="I will Fetch example.com!"/>
     </section>
   </Fragment>
 

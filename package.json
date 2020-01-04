@@ -1,6 +1,6 @@
 {
   "name": "react-quicklink",
-  "version": "0.1.0-rc",
+  "version": "0.2.0-rc",
   "main": "dist/index",
   "module": "dist/index",
   "files": [
