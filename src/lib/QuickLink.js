@@ -1,70 +1,65 @@
-import React, {useEffect, useRef, useState} from "react";
+import React, { useEffect, useRef } from "react";
 import PropTypes from "prop-types";
-
-// TODO: Prefetching: // https://github.com/GoogleChromeLabs/quicklink/blob/master/src/prefetch.mjs
+import FetchLink from "./FetchLink";
 
 let effectiveTypes = ["slow-2g", "2g", "3g", "4g"]
 
-const QuickLink = ({ to, altText, children, titleText, allowedOrigins, connType, ...rest}) => {
+const QuickLink = ({ to, altText, children, titleText, allowedOrigins, connType, rootMargin, threshold, content, cls, ...rest}) => {
   
   const refLink = useRef();
   useEffect(() => {
     const { current } = refLink;
-
-    // Origins?
     const allowedOptions = allowedOrigins || [window.location.hostname];
     const allowed = allowedOptions === current.hostname;
-
-    // Connections
     const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
-
-    // effectiveType?
     const type = connection.effectiveType;
     let thresholdType = effectiveTypes.indexOf(connType);
     let types = effectiveTypes.filter( (t, i) => i >= thresholdType );
     const typeSaver = types.indexOf(type) > -1;
-
-    // saveData?
     const dataSaver = connection.saveData;
-
-    // This user is apt?
     const apt = allowed || typeSaver || dataSaver;
 
     const handleIntersection = (entries) => {
-      console.log(entries)
+      if ("requestIdleCallback" in window && apt && entries[0].isIntersecting) {
+        FetchLink(current.href);
+      }
     };
-    // const quicklinkWork = () => {
-    //   current.rel = "prefetch"
-    // }
-    const observer = new IntersectionObserver(handleIntersection);
+    let options = {
+      root: null,
+      rootMargin: rootMargin,
+      threshold: threshold
+    };
+    const observer = new IntersectionObserver(handleIntersection, options);
     observer.observe(current);
-
-    if ("requestIdleCallback" in window && apt) {
-      // requestIdleCallback(quicklinkWork())
-    }
     return () => observer.disconnect();
-  }, [allowedOrigins, connType]);
+  }, [allowedOrigins, connType, rootMargin, threshold]);
 
   return (
-    <a href={to} alt={altText} ref={refLink} title={titleText} {...rest}>{children}</a>
+    <a className={cls} href={to} alt={altText} ref={refLink} title={titleText} {...rest}>{children ? children : content}</a>
   )
 }
 
 QuickLink.propTypes = {
   to: PropTypes.string.isRequired,
   alt: PropTypes.string.isRequired,
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node,
   title: PropTypes.string,
   connType: PropTypes.string,
-  allowedOrigins: PropTypes.array
+  allowedOrigins: PropTypes.array,
+  rootMargin: PropTypes.string,
+  threshold: PropTypes.array,
+  content: PropTypes.string,
+  cls: PropTypes.string
 }
 
 QuickLink.dafaultProps = {
   title: "",
   connType: "2g",
   allowedOrigins: null,
+  rootMargin: "0px",
+  threshold: [1.0],
+  content: "",
+  cls: null
 }
-
-// throttle? limit? timeout?
 
 export default QuickLink;
