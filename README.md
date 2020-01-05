@@ -26,7 +26,11 @@ Quicklink attempts to make navigations to subsequent pages load faster making an
 
 ## Why
 
-Specially for Server Side Rendering Apps, with a lot of content, navigation between pages is not as performant as single page applications, this technique makes possible to fine tunning your perceived speed and a better experience for your users. As a component you can have control in which links and origins you want to target and not loading every link it finds (which is a very expensive task if you have a lot of links in a page). An adaptive loading way of anchors work for a better navigation. 
+Specially for Server Side Rendering Apps, with a lot of content, navigation between pages is not as performant as single page applications, this technique makes possible to fine tunning your perceived speed and a better experience for your users. As a component you can have control in which links and origins you want to target and not loading every link it finds (which is a very expensive task if you have a lot of links in a page) -- which met my expectations and needs, and hopefully yours too. An adaptive loading way of anchors work for a better navigation.
+
+Prefer a Higher Order Component (HOC)?
+
+Great, this you'll be the sight choice for you: https://github.com/HOUCe/react-quicklink-component/
 
 ## Basic usage
 
@@ -109,7 +113,8 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 
 ## Thanks
 
-Quicklink lib from Google (This is just a port to a React Component): https://github.com/GoogleChromeLabs/quicklink 
+[Quicklink](https://getquick.link/) lib from Google  
+[React Quicklink Component](https://github.com/GoogleChromeLabs/quicklink), a HOC for React for the inspiration  
 Addy Osmani ([addyosmani](https://github.com/addyosmani)) for the Adaptive Loading ideas and the great work in a more performant web
 
 ## License
