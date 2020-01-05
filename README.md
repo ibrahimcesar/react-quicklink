@@ -17,20 +17,21 @@ npm install react-quicklink -S
 ```
 ## How it works
 
-Quicklink attempts to make navigations to subsequent pages load faster making anchors aware of user network capabilities. It:
+Quicklink attempts to make navigations to subsequent pages load faster by making anchors aware of user network capabilities. 
 
-- Detects links within the viewport (using __Intersection Observer__)
-- Waits until the browser is idle (using __requestIdleCallback__)
-- Checks if the user isn't on a slow connection (using __navigator.connection.effectiveType__) or has data-saver enabled (using __navigator.connection.saveData__)
-- Prefetches URLs to the links (using __<link rel=prefetch>__ or __XHR__).
+It will:  
+- Detect links within the viewport (using __Intersection Observer__)
+- Wait until the browser is idle (using __requestIdleCallback__)
+- Check if the user isn't on a slow connection (using __navigator.connection.effectiveType__) or has data-saver enabled (using __navigator.connection.saveData__)
+- Prefetch URLs to the links (using __<link rel=prefetch>__ or __XHR__).
 
 ## Why
 
-Specially for Server Side Rendering Apps, with a lot of content, navigation between pages is not as performant as single page applications, this technique makes possible to fine tunning your perceived speed and a better experience for your users. As a component you can have control in which links and origins you want to target and not loading every link it finds (which is a very expensive task if you have a lot of links in a page) -- which met my expectations and needs, and hopefully yours too. An adaptive loading way of anchors work for a better navigation.
+Specially for Server Side Rendering Apps, with a lot of content, navigation between pages is not as performant as single page applications, this technique makes it possible to fine tune your perceived speed and provide a better experience for your users. As a component you can have control in which links and origins you want to target and not load every link it finds (which is a very expensive task if you have a lot of links in a page) -- which met my expectations and needs, and hopefully yours too. An adaptive loading method for anchors make for a better navigation.
 
 Prefer a Higher Order Component (HOC)?
 
-Great, this you'll be the sight choice for you: https://github.com/HOUCe/react-quicklink-component/
+Great, this will be the right choice for you: https://github.com/HOUCe/react-quicklink-component/
 
 ## Basic usage
 
