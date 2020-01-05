@@ -1,8 +1,22 @@
 {
   "name": "react-quicklink",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "main": "dist/index",
   "module": "dist/index",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ibrahimcesar/react-quicklink.git"
+  },
+  "keywords": ["React", "Reactjs", "Quicklink", "Intersection Observer", "requestIdleCallback", "Prefetching", "navigator.connection.effectiveType", "navigator.connection.saveData", "Progressive Enhancement", "Adaptive Loading"],
+  "author": { 
+    "name" : "Ibrahim Cesar",
+    "email" : "email@ibrahimcesar.com",
+    "url" : "https://twitter.com/ibrahimcesar"
+    },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ibrahimcesar/react-quicklink/issues"
+  },
   "files": [
     "dist"
   ],
