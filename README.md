@@ -117,6 +117,9 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 [React Quicklink Component](https://github.com/GoogleChromeLabs/quicklink), a HOC for React for the inspiration  
 Addy Osmani ([addyosmani](https://github.com/addyosmani)) for the Adaptive Loading ideas and the great work in a more performant web
 
+## See Also
+[__React Lite YouTube Embed__](https://www.npmjs.com/package/react-lite-youtube-embed): A faster and cleaner YouTube embed component for __React__
+
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
 
