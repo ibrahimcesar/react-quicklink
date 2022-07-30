@@ -1,4 +1,15 @@
-# React Quicklink
+<div align="center">
+
+[![No Maintenance Intended](http://unmaintained.tech/badge.svg)](http://unmaintained.tech/)
+
+</div>
+
+
+# DEPRECATED
+
+This is no longer supported, please consider using more modern, up to date and native functions provided by frameworks or new features from React 18+ that are more performant. The use of this library is not recommended for any production project. This repo is archived and will not receive any more updates.
+
+## React Quicklink
 
 > ⚡️ Faster subsequent page-loads by prefetching in-viewport links during idle time for __React__, port of https://getquick.link
 
@@ -15,7 +26,7 @@ yarn add react-quicklink
 ```bash
 npm install react-quicklink -S
 ```
-## How it works
+### How it works
 
 Quicklink attempts to make navigations to subsequent pages load faster by making anchors aware of user network capabilities. 
 
@@ -25,7 +36,7 @@ It will:
 - Check if the user isn't on a slow connection (using __navigator.connection.effectiveType__) or has data-saver enabled (using __navigator.connection.saveData__)
 - Prefetch URLs to the links (using __<link rel=prefetch>__ or __XHR__).
 
-## Why
+### Why
 
 Specially for Server Side Rendering Apps, with a lot of content, navigation between pages is not as performant as single page applications, this technique makes it possible to fine tune your perceived speed and provide a better experience for your users. As a component you can have control in which links and origins you want to target and not load every link it finds (which is a very expensive task if you have a lot of links in a page) -- which met my expectations and needs, and hopefully yours too. An adaptive loading method for anchors make for a better navigation.
 
@@ -33,7 +44,7 @@ Prefer a Higher Order Component (HOC)?
 
 Great, this will be the right choice for you: https://github.com/HOUCe/react-quicklink-component/
 
-## Basic usage
+### Basic usage
 
 ```javascript
 import React from "react";
@@ -58,7 +69,7 @@ render(<App />, document.getElementById("root"));
 ```
 And that's it.
 
-## Pro Usage
+### Pro Usage
 
 You asked for props? You got props.
 
@@ -88,7 +99,7 @@ const App = () => (
 );
 ```
 
-## Browser support
+### Browser support
 
 The prefetching provided by `quicklink` can be viewed as a [progressive enhancement](https://www.smashingmagazine.com/2009/04/progressive-enhancement-what-it-is-and-how-to-use-it/). Cross-browser support is as follows:
 
@@ -102,24 +113,17 @@ Certain features have layered support:
 * If [Fetch API](https://fetch.spec.whatwg.org/) isn't available, XHR will be used instead.
 
 
-## Issues
+### Issues
 Not tested in all OS, browsers etc. Use at your risk, but please, send feedback! Please feel free to open an issue!
 
-## Contributing
+### Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
-### TO DO:
-- Add tests
-- Test browser coverage
-
-## Thanks
+### Thanks
 
 [Quicklink](https://getquick.link/) lib from Google  
 [React Quicklink Component](https://github.com/GoogleChromeLabs/quicklink), a HOC for React for the inspiration  
 Addy Osmani ([addyosmani](https://github.com/addyosmani)) for the Adaptive Loading ideas and the great work in a more performant web
-
-## See Also
-[React Lite YouTube Embed](https://www.npmjs.com/package/react-lite-youtube-embed): A faster and cleaner YouTube embed component for __React__
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
